@@ -5,15 +5,15 @@ plugins {
 repositories {
     mavenLocal()
     mavenCentral()
-// TODO: uncomment to be able to fetch packages in your own repository
-//    maven {
-//        name = "GitHubPackages"
-//        url = uri("https://maven.pkg.github.com/<your-username>/printscript")
-//        credentials {
-//            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-//            password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
-//        }
-//    }
+
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/TP1-2-INGSIS/CNC")
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+            password = project.findProperty("gpr.token") ?: System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
 
 java {
@@ -29,6 +29,15 @@ test {
 
 dependencies {
     testImplementation 'junit:junit:4.13.1'
+    implementation("com.github.TP1-2-INGSIS:app:1.0.0")
+    implementation("com.github.TP1-2-INGSIS:interpreter:1.0.0")
+    implementation("com.github.TP1-2-INGSIS:lexer:1.0.0")
+    implementation("com.github.TP1-2-INGSIS:parser:1.0.0")
+    implementation("com.github.TP1-2-INGSIS:linter:1.0.0")
+    implementation("com.github.TP1-2-INGSIS:semantic:1.0.0")
+    implementation("com.github.TP1-2-INGSIS:common:1.0.0")
+    implementation("com.github.TP1-2-INGSIS:ast:1.0.0")
+    implementation("com.github.TP1-2-INGSIS:token:1.0.0")
 }
 
 test {
