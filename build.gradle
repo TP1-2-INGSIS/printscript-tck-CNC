@@ -29,15 +29,17 @@ test {
 
 dependencies {
     testImplementation 'junit:junit:4.13.1'
-    implementation("com.github.TP1-2-INGSIS:app:1.0.0")
-    implementation("com.github.TP1-2-INGSIS:interpreter:1.0.0")
-    implementation("com.github.TP1-2-INGSIS:lexer:1.0.0")
-    implementation("com.github.TP1-2-INGSIS:parser:1.0.0")
-    implementation("com.github.TP1-2-INGSIS:linter:1.0.0")
-    implementation("com.github.TP1-2-INGSIS:semantic:1.0.0")
-    implementation("com.github.TP1-2-INGSIS:common:1.0.0")
-    implementation("com.github.TP1-2-INGSIS:ast:1.0.0")
-    implementation("com.github.TP1-2-INGSIS:token:1.0.0")
+    implementation("com.github.TP1-2-INGSIS:printscript:1.1.0")
+    implementation("com.github.TP1-2-INGSIS:app:1.1.0")
+    implementation("com.github.TP1-2-INGSIS:interpreter:1.1.0")
+    implementation("com.github.TP1-2-INGSIS:lexer:1.1.0")
+    implementation("com.github.TP1-2-INGSIS:parser:1.1.0")
+    implementation("com.github.TP1-2-INGSIS:linter:1.1.0")
+    implementation("com.github.TP1-2-INGSIS:semantic:1.1.0")
+    implementation("com.github.TP1-2-INGSIS:common:1.1.0")
+    implementation("com.github.TP1-2-INGSIS:ast:1.1.0")
+    implementation("com.github.TP1-2-INGSIS:token:1.1.0")
+    implementation("com.github.TP1-2-INGSIS:formatter:1.1.0")
 }
 
 test {
