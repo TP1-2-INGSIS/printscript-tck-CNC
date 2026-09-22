@@ -32,16 +32,6 @@ dependencies {
 
     testImplementation 'junit:junit:4.13.1'
     implementation("com.github.TP1-2-INGSIS:printscript:${psVersion}")
-    implementation("com.github.TP1-2-INGSIS:app:${psVersion}")
-    implementation("com.github.TP1-2-INGSIS:interpreter:${psVersion}")
-    implementation("com.github.TP1-2-INGSIS:lexer:${psVersion}")
-    implementation("com.github.TP1-2-INGSIS:parser:${psVersion}")
-    implementation("com.github.TP1-2-INGSIS:linter:${psVersion}")
-    implementation("com.github.TP1-2-INGSIS:semantic:${psVersion}")
-    implementation("com.github.TP1-2-INGSIS:common:${psVersion}")
-    implementation("com.github.TP1-2-INGSIS:ast:${psVersion}")
-    implementation("com.github.TP1-2-INGSIS:token:${psVersion}")
-    implementation("com.github.TP1-2-INGSIS:formatter:${psVersion}")
 }
 
 test {

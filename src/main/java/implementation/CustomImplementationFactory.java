@@ -22,7 +22,12 @@ public class CustomImplementationFactory implements PrintScriptFactory {
                 PrintScriptFacade printScript = PsVersioner.INSTANCE.version(version);
                 Result<Unit> result = printScript.execute(
                         src,
-                        provider::input,
+                        prompt -> {
+                            if (prompt != null && !prompt.isEmpty()) {
+                                emitter.print(prompt);
+                            }
+                            return provider.input(prompt);
+                        },
                         System::getenv,
                         msg -> {
                             emitter.print(msg);
@@ -33,6 +38,9 @@ public class CustomImplementationFactory implements PrintScriptFactory {
                     handler.reportError(((Failure<Unit>) result).getMsg());
                 }
             } catch (Throwable t) {
+                if (t instanceof OutOfMemoryError) {
+                    System.gc();
+                }
                 handler.reportError(t.getMessage() != null ? t.getMessage() : t.toString());
             }
         };
@@ -43,7 +51,8 @@ public class CustomImplementationFactory implements PrintScriptFactory {
         return (src, version, config, writer) -> {
             try {
                 PrintScriptFacade printScript = PsVersioner.INSTANCE.version(version);
-                String formatted = printScript.format(src);
+                String configJson = new String(config.readAllBytes(), StandardCharsets.UTF_8);
+                String formatted = printScript.format(src, configJson);
                 writer.write(formatted);
             } catch (Throwable t) {
                 // handle error
