@@ -28,7 +28,7 @@ test {
 }
 
 dependencies {
-    def psVersion = project.findProperty("printscriptVersion") ?: System.getenv("PRINTSCRIPT_VERSION") ?: "1.2.0"
+    def psVersion = project.findProperty("printscriptVersion") ?: System.getenv("PRINTSCRIPT_VERSION") ?: "latest.release"
 
     testImplementation 'junit:junit:4.13.1'
     implementation("com.github.TP1-2-INGSIS:printscript:${psVersion}")
